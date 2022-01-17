@@ -10,7 +10,7 @@ Some services set `LD_LIBRARY_PATH` to allow running them without nscd. These wo
 
 ### Implementation
 
-Provide global NSS modules at `/run/nss-modules${word_size}-${glibc_version}/lib` (e.g. `/run/nss-modules64-2.34/lib`) and patch glibc to use this path.
+Provide global NSS modules at `/run/nss-modules-${word_size}-${glibc_version}/lib` (e.g. `/run/nss-modules-64-2.34/lib`) and patch glibc to use this path.
 The versioning suffix ensures that only binary compatible glibc client binaries will use this path.
 
 Repo [erikarvstedt/check-glibc-compatibilities](https://github.com/erikarvstedt/check-glibc-compatibilities/) shows that different NSS modules and glibc clients are compatible with each other, as long as they share the same minor glibc release (e.g. `2.34`).
