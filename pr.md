@@ -18,6 +18,7 @@ Repo [erikarvstedt/check-glibc-compatibilities](https://github.com/erikarvstedt/
 ### Todo
 - nscd is still enabled to provide backwards compatibility for older binaries.
   In light of its defects and lack of maintenance, it might be sensible to disable nscd by default.
+  Note: `unscd` is no replacement for nscd because it [doesn't implement](https://github.com/bytedance/unscd/blob/3a4df8de6723bc493e9cd94bb3e3fd831e48b8ca/nscd.c#L615-L621) all nsswitch functions ([src](https://github.com/NixOS/nixpkgs/pull/124019#issuecomment-938034753)).
 - We'll add release notes for this PR as soon as it reaches community consensus.
 
 ### Appendix
