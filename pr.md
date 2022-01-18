@@ -15,6 +15,8 @@ The versioning suffix ensures that only binary compatible glibc client binaries 
 
 Repo [erikarvstedt/check-glibc-compatibilities](https://github.com/erikarvstedt/check-glibc-compatibilities/) shows that different NSS modules and glibc clients are compatible with each other, as long as they share the same minor glibc release (e.g. `2.34`).
 
+Because the patched code region is never inlined, the patch affects all binaries that dynamically link glibc. This includes binaries prebuilt with a non-nixpkgs libc that are processed with `patchelf` (like `slack`).
+
 ### Todo
 - nscd is still enabled to provide backwards compatibility for older binaries and 32-bit binaries on 64-bit hosts.
   In light of its defects and lack of maintenance, it might be sensible to disable nscd by default.
