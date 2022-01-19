@@ -3,7 +3,7 @@ Provide NSS modules globally, make nscd unnecessary (v2)
 This is a follow-up to https://github.com/NixOS/nixpkgs/pull/138178 which fixes the binary incompatibilities of the original PR.
 
 This PR allows glibc client binaries to access NSS modules configured via `system.nssModules` without nscd.
-nscd has significant caching bugs and [causes friction](https://github.com/NixOS/nixpkgs/issues/95107) in general.
+nscd has significant caching bugs and causes friction in general (#95107, #154928).
 For details about nscd bugs, see issue [`DNS responses are cached`](https://github.com/NixOS/nixpkgs/issues/135888) and the [Fedora nscd deprecation notes](https://fedoraproject.org/wiki/Changes/DeprecateNSCD#Benefit_to_Fedora).
 
 Some services set `LD_LIBRARY_PATH` to allow running them without nscd. These workarounds are now obsolete and are removed by this PR.
