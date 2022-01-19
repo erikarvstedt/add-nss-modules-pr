@@ -22,7 +22,7 @@ Because the patched code region is never inlined, the patch affects all binaries
   In light of its defects and lack of maintenance, it might be sensible to disable nscd by default.
   Note: `unscd` is no replacement for nscd because it [doesn't implement](https://github.com/bytedance/unscd/blob/3a4df8de6723bc493e9cd94bb3e3fd831e48b8ca/nscd.c#L615-L621) all nsswitch functions ([src thread](https://github.com/NixOS/nixpkgs/pull/124019#issuecomment-856228888)).
 - We'll add release notes for this PR as soon as it reaches community consensus.
-- To support 32-bit binaries on 64-bit hosts without nscd, we could add options analogous to [`opengl.driSupport32Bit`](https://search.nixos.org/options?channel=21.11&show=hardware.opengl.driSupport32Bit&from=0&size=30&sort=relevance&type=packages&query=opengl.driSupport32Bit) and [`opengl.extraPackages32`](https://search.nixos.org/options?channel=21.11&show=hardware.opengl.extraPackages32&from=0&size=30&sort=relevance&type=packages&query=extraPackages32). As a minimum, `systemd` NSS modules should be provided. This can be addressed in another PR.
+- To support 32-bit binaries on 64-bit hosts without nscd, we could add options analogous to [`opengl.driSupport32Bit`](https://github.com/NixOS/nixpkgs/blob/610d4ea2750e064bf34b33fa38cb671edd893d3d/nixos/modules/hardware/opengl.nix#L60) and [`opengl.extraPackages32`](https://github.com/NixOS/nixpkgs/blob/610d4ea2750e064bf34b33fa38cb671edd893d3d/nixos/modules/hardware/opengl.nix#L99). As a minimum, `systemd` NSS modules should be provided. This can be addressed in another PR.
 
 ### Appendix
 Fixes: #135888
